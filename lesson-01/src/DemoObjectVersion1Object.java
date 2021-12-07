@@ -11,10 +11,15 @@ public class DemoObjectVersion1Object extends PApplet {
 
     @Override
     public void draw() {
-        System.out.println(width);
         background(0);
-        button.draw();
-        b2.draw();
+        button.dessine();
+        b2.dessine();
+    }
+
+    @Override
+    public void mouseReleased() {
+        button.changeColor();
+        b2.changeColor();
     }
 
     public static void main(String[] args) {
@@ -26,6 +31,7 @@ public class DemoObjectVersion1Object extends PApplet {
         int height;
         int x;
         int y;
+        boolean isYellow = true;
 
         Button(int pwidth, int pheight, int px, int py) {
             width = pwidth;
@@ -34,13 +40,19 @@ public class DemoObjectVersion1Object extends PApplet {
             y = py;
         }
 
-        void draw() {
+        void dessine() {
             if (x <= mouseX && mouseX <= (x + width) && y <= mouseY && mouseY <= (y + height)) {
-                fill(255, 255, 0);
+                if (isYellow) fill(255, 255, 0);
+                else fill(255, 0, 255);
             } else {
-                fill(180, 180, 0);
+                if (isYellow) fill(180, 180, 0);
+                else fill(180, 0, 180);
             }
             rect(x, y, width, height);
+        }
+
+        void changeColor() {
+            isYellow = ! isYellow;
         }
     }
 }
