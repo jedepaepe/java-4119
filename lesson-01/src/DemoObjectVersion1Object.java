@@ -1,12 +1,22 @@
 import processing.core.PApplet;
 
 public class DemoObjectVersion1Object extends PApplet {
-    Button button = new Button(100, 50, 100, 50);
-    Button b2 = new Button(50, 50, 400, 400);
+    Button button = new Button();
+    Button b2 = new Button();
 
     @Override
     public void settings() {
+
         size(600, 600);
+        button.x = 100;
+        button.y = 50;
+        button.width = 100;
+        button.height = 50;
+
+        b2.x = 400;
+        b2.y = 400;
+        b2.width = 50;
+        b2.height = 50;
     }
 
     @Override
@@ -33,12 +43,12 @@ public class DemoObjectVersion1Object extends PApplet {
         int y;
         boolean isYellow = true;
 
-        Button(int pwidth, int pheight, int px, int py) {
-            width = pwidth;
-            height = pheight;
-            x = px;
-            y = py;
-        }
+//        Button(int pwidth, int pheight, int px, int py) {
+//            width = pwidth;
+//            height = pheight;
+//            x = px;
+//            y = py;
+//        }
 
         void dessine() {
             if (x <= mouseX && mouseX <= (x + width) && y <= mouseY && mouseY <= (y + height)) {
