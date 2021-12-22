@@ -49,6 +49,7 @@ public class DemoCheckBox extends PApplet {
         }
 
         public void draw() {
+            // dessine le carré
             rectMode(CENTER);
             stroke(0);
             if (isSelected) {
@@ -57,12 +58,14 @@ public class DemoCheckBox extends PApplet {
                 noFill();
             }
             square(x, y, size);
+            // dessine le V
             fill(0);
             if (isSelected) {
                 textAlign(CENTER, CENTER);
                 textSize(size);
                 text("V", x, y - size * 0.15f);
             }
+            // dessine le label
             textSize(size);
             textAlign(LEFT, CENTER);
             text(label, x + size, y - size * 0.15f);
