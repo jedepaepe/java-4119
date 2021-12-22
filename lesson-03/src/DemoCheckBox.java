@@ -58,14 +58,14 @@ public class DemoCheckBox extends PApplet {
             }
             square(x, y, size);
             fill(0);
-            textSize(size);
-            textAlign(LEFT, CENTER);
-            text(label, x + size, y - size * 0.15f);
             if (isSelected) {
                 textAlign(CENTER, CENTER);
                 textSize(size);
                 text("V", x, y - size * 0.15f);
             }
+            textSize(size);
+            textAlign(LEFT, CENTER);
+            text(label, x + size, y - size * 0.15f);
         }
 
         public void mousePressed() {
@@ -75,7 +75,7 @@ public class DemoCheckBox extends PApplet {
         }
 
         public boolean isMouseIn() {
-            return x <= mouseX && mouseX <= x + size && y <= mouseY && mouseY <= y + size;
+            return Math.abs(mouseX - x) <= size / 2 && Math.abs(mouseY - y) <= size / 2;
         }
     }
 }
