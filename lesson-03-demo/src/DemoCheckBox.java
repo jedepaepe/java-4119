@@ -34,7 +34,7 @@ public class DemoCheckBox extends PApplet {
     }
 
     class CheckBox {
-        boolean isSelected = false;
+        boolean isSelected;
         String label;
         int x;
         int y;
