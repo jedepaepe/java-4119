@@ -10,7 +10,7 @@ public class CompteSimple extends Compte {
 
     @Override
     public void retirer(float montant) {
-        if (solde - montant >= decouvert) {
+        if (solde - montant >= - decouvert) {
             solde -= montant;
         }
     }
