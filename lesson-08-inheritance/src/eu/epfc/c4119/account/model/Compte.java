@@ -1,4 +1,4 @@
-package eu.epfc.c4119.account;
+package eu.epfc.c4119.account.model;
 
 public class Compte {
     private int code;
