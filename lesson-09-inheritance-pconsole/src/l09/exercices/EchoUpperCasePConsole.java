@@ -1,4 +1,4 @@
-package l09.ex1;
+package l09.exercices;
 
 import l09.pconsole.PConsole;
 
