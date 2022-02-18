@@ -2,6 +2,8 @@ package l09.exercices;
 
 import l09.pconsole.PConsole;
 
+import java.util.Locale;
+
 public class EchoUpperCasePConsole extends PConsole {
     @Override
     public void onInitialize() {
@@ -10,7 +12,7 @@ public class EchoUpperCasePConsole extends PConsole {
 
     @Override
     public boolean onNewLine(String line) {
-        println(line);
+        println(line.toUpperCase());
         if (line.equals("Q")) return false;
         printPrompt();
         return true;
