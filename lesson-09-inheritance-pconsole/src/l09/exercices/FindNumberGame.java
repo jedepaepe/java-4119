@@ -15,7 +15,7 @@ public class FindNumberGame extends PConsole {
     @Override
     public boolean onNewLine(String line) {
         int propose = convertStringToValidInteger(line);
-        if (propose > max) {
+        if (propose < 0) {
             println("Vous dever taper un nombre entre 0 et " + max);
             return true;
         }
