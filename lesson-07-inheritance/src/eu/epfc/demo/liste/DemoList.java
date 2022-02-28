@@ -9,7 +9,7 @@ public class DemoList {
     public static void main(String[] args) {
         // array (tableau)
         int[] ints = new int[4];
-        int bints[] = new int[4];
+        int[] bints = new int[4];
         Person[] persons = new Person[10];
         persons[0] = new Person();
 

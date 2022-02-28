@@ -4,14 +4,14 @@ import l09.pconsole.PConsole;
 
 public class HangManGame extends PConsole {
     // idéalement il faudrait lire ces mots d'une base de donnée, d'un dictionnaire
-    final String[] words = {
+    private final String[] words = {
             "bonjour",
             "dromadaire",
             "ville",
             "oiseau",
             "chanson"
     };
-    String[] hangMan = {
+    private final String[] hangMan = {
             "\n",
             " o \n",
             " o\n | \n",
@@ -39,7 +39,7 @@ public class HangManGame extends PConsole {
         }
         if (! playChar(line.charAt(0))) {
             ++count;
-        };
+        }
         println(buildStatusString());
         if (isWin()) {
             println("Vous avez gagnez");
@@ -66,8 +66,8 @@ public class HangManGame extends PConsole {
      * @return true si le joueur a gagné
      */
     private boolean isWin() {
-        for (int i = 0; i < founds.length; ++i) {
-            if (founds[i] == false) return false;
+        for (boolean found : founds) {
+            if (!found) return false;
         }
         return true;
     }
@@ -121,7 +121,7 @@ public class HangManGame extends PConsole {
 
     /**
      * démarre l'application
-     * @param args
+     * @param args sont les arguments de la ligne de commande
      */
     public static void main(String[] args) {
         new HangManGame().run();

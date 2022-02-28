@@ -1,7 +1,7 @@
 package eu.epfc.c4119.account.model;
 
 public class CompteEpargne extends Compte {
-    float taux;
+    private final float taux;
 
     public CompteEpargne(int code, float taux) {
         super(code);

@@ -1,7 +1,7 @@
 package eu.epfc.c4119.account.model;
 
 public class Compte {
-    private int code;
+    private final int code;
     protected float solde;
 
     public Compte(int code) {

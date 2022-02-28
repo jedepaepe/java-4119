@@ -3,8 +3,8 @@ package l09.exercices;
 import l09.pconsole.PConsole;
 
 public class FindNumberGame extends PConsole {
-    int target;
-    int max = 10;
+    private int target;
+    private final int max = 10;
 
     @Override
     public void onInitialize() {
@@ -60,7 +60,7 @@ public class FindNumberGame extends PConsole {
                 return -1;
             }
         }
-        return Integer.valueOf(text);
+        return Integer.parseInt(text);
     }
 
     public static void main(String[] args) {

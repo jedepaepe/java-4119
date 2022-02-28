@@ -62,12 +62,12 @@ public class DemoBook {
         };
         // foreach
         for(Book b : books) {
-            System.out.println(b.toString());
+            System.out.println(b);
         }
         // for classique
         System.out.println();
         for (int i = 0; i < books.length; ++i) {
-            System.out.println(books[i].toString());
+            System.out.println(books[i]);
         }
     }
 

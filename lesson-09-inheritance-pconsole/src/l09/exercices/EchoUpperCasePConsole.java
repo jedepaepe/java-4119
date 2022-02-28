@@ -2,8 +2,6 @@ package l09.exercices;
 
 import l09.pconsole.PConsole;
 
-import java.util.Locale;
-
 public class EchoUpperCasePConsole extends PConsole {
     @Override
     public void onInitialize() {

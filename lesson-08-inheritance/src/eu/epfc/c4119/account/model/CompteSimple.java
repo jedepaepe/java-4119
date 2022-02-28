@@ -1,7 +1,7 @@
 package eu.epfc.c4119.account.model;
 
 public class CompteSimple extends Compte {
-    private float decouvert;
+    private final float decouvert;
 
     public CompteSimple(int code, float decouvert) {
         super(code);

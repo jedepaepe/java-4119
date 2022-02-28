@@ -43,13 +43,6 @@ public class DemoObjectVersion1Object extends PApplet {
         int y;
         boolean isYellow = true;
 
-//        Button(int pwidth, int pheight, int px, int py) {
-//            width = pwidth;
-//            height = pheight;
-//            x = px;
-//            y = py;
-//        }
-
         void dessine() {
             if (x <= mouseX && mouseX <= (x + width) && y <= mouseY && mouseY <= (y + height)) {
                 if (isYellow) fill(255, 255, 0);
