@@ -47,7 +47,7 @@ public class HangManGame extends PConsole {
         }
         if (! canContinue()) {
             println("Vous avez perdu");
-            println("Le mot est " + buildWordString());
+            println("Le mot est " + new String(target));
             return false;
         }
         return true;
@@ -58,7 +58,7 @@ public class HangManGame extends PConsole {
      * @return true si la partie est terminée
      */
     private boolean canContinue() {
-        return count < 7;
+        return count < 6;
     }
 
     /**
