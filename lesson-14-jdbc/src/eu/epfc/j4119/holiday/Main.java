@@ -1,17 +1,25 @@
 package eu.epfc.j4119.holiday;
 
-import jdk.jshell.spi.ExecutionControl;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:holiday.db")) {
+            String sql = "CREATE TABLE IF NOT EXISTS request (" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "employee TEXT," +
+                    "start TEXT," +
+                    "end TEXT," +
+                    "status TEXT)";
+            System.out.println(sql);
+            connection.createStatement().execute(sql);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         Scanner in = new Scanner(System.in);
         do {
+            System.out.println();
             System.out.println("Choisissez parmi les options suivantes");
             System.out.println("1. lister les demandes de congé");
             System.out.println("2. demander un nouveau congé");
@@ -35,13 +43,31 @@ public class Main {
                     } catch (SQLException throwables) {
                         throwables.printStackTrace();
                     }
-                    System.out.println("connection supprimée");
                     break;
                 case "2":
-                    System.out.println("Demande un congé TODO");
+                    try (Connection connection = DriverManager.getConnection("jdbc:sqlite:holiday.db")) {
+                        String sql = "INSERT INTO request (employee, start, end, status) VALUES(?,?,?,?)";
+                        PreparedStatement statement = connection.prepareStatement(sql);
+                        String employee = "Sylvie";
+                        System.out.print("Début: ");
+                        String start = in.nextLine();
+                        System.out.print("Fin: ");
+                        String end = in.nextLine();
+                        String status = "REQUESTED";
+                        statement.setString(1, employee);
+                        statement.setString(2, start);
+                        statement.setString(3, end);
+                        statement.setString(4, status);
+                        statement.executeUpdate();
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    }
                     break;
                 case "3":
-                    System.out.println("Annuler une demande TODO");
+                    System.out.println("Demander l'id du congé à annuler");
+                    String sql = "UPDATE request SET status='CANCELLED' WHERE id=?";
+                    System.out.println(sql);
+                    System.out.println("Pour le reste, il faut copier le cas 'demander un congé'");
                     break;
                 default:
                     System.out.println("Le choix " + choice + " n'est pas connu");
