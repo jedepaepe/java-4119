@@ -64,10 +64,16 @@ public class Main {
                     }
                     break;
                 case "3":
-                    System.out.println("Demander l'id du congé à annuler");
-                    String sql = "UPDATE request SET status='CANCELLED' WHERE id=?";
-                    System.out.println(sql);
-                    System.out.println("Pour le reste, il faut copier le cas 'demander un congé'");
+                    try (Connection connection = DriverManager.getConnection("jdbc:sqlite:holiday.db")) {
+                        System.out.println("Demander l'id du congé à annuler");
+                        int id = Integer.parseInt(in.nextLine());
+                        String sql = "UPDATE request SET status='CANCELLED' WHERE id=?";
+                        PreparedStatement statement = connection.prepareStatement(sql);
+                        statement.setInt(1, id);
+                        statement.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 default:
                     System.out.println("Le choix " + choice + " n'est pas connu");
