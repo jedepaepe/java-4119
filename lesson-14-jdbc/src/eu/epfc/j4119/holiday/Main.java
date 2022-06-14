@@ -3,6 +3,7 @@ package eu.epfc.j4119.holiday;
 import java.sql.*;
 import java.util.Scanner;
 
+// for test
 public class Main {
     public static void main(String[] args) {
         try (Connection connection = DriverManager.getConnection("jdbc:sqlite:holiday.db")) {
